@@ -27,7 +27,7 @@
     - gradient가 흐르지 않게 되는데 (argmax 해서 index를 가져가기 때문에) straight through estimator 를 이용해서 근사하도록 함
     - straight through estimator는 샘플된 vector가 아닌 encoder에서 나온 gradient를 그대로 넣어버리는 방법을 의미
     - 한편 embedding features와 encoder output을 서로 가까워지도록 학습하였음
-    - ![image](https://user-images.githubusercontent.com/37280722/184133311-93f60cf3-fbb9-4671-b4a6-888e5f0357e9.png)
+    - ![image](https://user-images.githubusercontent.com/37280722/184133828-eb987b94-9b79-4e29-a343-9ac5e455d10b.png)
     - 논문: https://arxiv.org/abs/1711.00937v2
     - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/VQVAE.ipynb
 - Generative Adversarial Networks (GAN), 2014
