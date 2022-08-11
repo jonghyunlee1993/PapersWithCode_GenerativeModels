@@ -2,7 +2,7 @@
 
 - Auto Encoder (AE), 2006
     - encoder 와 decoder 를 이용한 compressed dimension의 representation 학습
-    - $^{x} = g(f(x))$ 의 reconstruction을 MSE, CE loss 로 학습
+    - ![image](https://user-images.githubusercontent.com/37280722/184119477-c18892ba-691c-4531-a062-b9e338d09db8.png)의 reconstruction을 MSE, CE loss 로 학습
     - 논문: https://www.science.org/doi/10.1126/science.1127647
     - 코드
         - FC 레이어: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/AE.ipynb
@@ -24,7 +24,7 @@
 - Generative Adversarial Networks (GAN), 2014
     - generater와 discriminator의 mini max 게임으로 generater를 학습시킴. 완벽하게 잘 학습된 generater는 discriminator의 fake or real을 맞출 확률을 1/2로 만듦
     - VAE에서 가정한 z 벡터를 통한 variational inference가 아닌 global approximator의 성질을 이용해서 직접 학습
-    - $\min_{G}\max_{D}\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log{D(x)}] +  \mathbb{E}_{z\sim p_{\text{z}}(z)}[1 - \log{D(G(z))}]$
+    - ![image](https://user-images.githubusercontent.com/37280722/184119279-603a2d8b-9e9b-4ad5-a0a1-c64e1f317474.png)
     - 논문: https://arxiv.org/abs/1406.2661
     - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/GAN.ipynb
 - Conditional Generative Adversarial Networks (CGAN), 2014
