@@ -21,6 +21,15 @@
     - loss 및 학습 방법은 VAE랑 동일함
     - 논문: https://papers.nips.cc/paper/2015/hash/8d55a249e6baa5c06772297520da2051-Abstract.html
     - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/%08CVAE.ipynb
+- Vector Quantized Variational Auto Encoder (VAVAE), 2017
+    - vector quantized 방법을 이용해서 기존 연속형으로 표현하던 z 벡터를 embedding lookup 테이블로 변경
+    - (patch size * patch size, embedding dim) X (embedding dim X embedding classes) 로 각각의 patch 마다 가장 가까운 embeddig features를 찾도록 함
+    - gradient가 흐르지 않게 되는데 (argmax 해서 index를 가져가기 때문에) straight through estimator 를 이용해서 근사하도록 함
+    - straight through estimator는 샘플된 vector가 아닌 encoder에서 나온 gradient를 그대로 넣어버리는 방법을 의미
+    - 한편 embedding features와 encoder output을 서로 가까워지도록 학습하였음
+    - ![image](https://user-images.githubusercontent.com/37280722/184133311-93f60cf3-fbb9-4671-b4a6-888e5f0357e9.png)
+    - 논문: https://arxiv.org/abs/1711.00937v2
+    - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/VQVAE.ipynb
 - Generative Adversarial Networks (GAN), 2014
     - generater와 discriminator의 mini max 게임으로 generater를 학습시킴. 완벽하게 잘 학습된 generater는 discriminator의 fake or real을 맞출 확률을 1/2로 만듦
     - VAE에서 가정한 z 벡터를 통한 variational inference가 아닌 global approximator의 성질을 이용해서 직접 학습
