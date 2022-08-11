@@ -1,0 +1,38 @@
+# Papers with codes: Generative models
+
+- Auto Encoder (AE), 2006
+    - encoder 와 decoder 를 이용한 compressed dimension의 representation 학습
+    - $^{x} = g(f(x))$ 의 reconstruction을 MSE, CE loss 로 학습
+    - 논문: https://www.science.org/doi/10.1126/science.1127647
+    - 코드
+        - FC 레이어: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/AE.ipynb
+        - CNN 레이어: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/DCAE.ipynb
+- Variational Auto Encoder (VAE), 2013
+    - AE는 encoder를 이용한 dimensionality reduction에 초점을 둔다면, VAE는 decoder를 이용한 생성에 초점
+    - variational bayes 방법을 이용하여 simple한 guassian distrbution을 $p(z)$에 가깝도록 유도하며 학습
+    - reconstruction error + KL divergence ($p(z)$에 guassian distrbution이 가까워지도록 하기 위함)
+    - 논문: https://arxiv.org/abs/1312.6114
+    - 코드
+        - CE loss: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/VAE-CE_loss.ipynb
+        - MSE loss:https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/VAE-MSE_loss.ipynb
+- Conditional Variational Auto Encoder (CVAE), 2015
+    - VAE는 sample generation을 임의의 z 벡터를 gaussian noise에서 샘플링하였기에 원하는 타겟으로 생성을 유도할 수 없음
+    - 따라서 label 정보를 one-hot-vector 또는 embedding으로 넘겨주어 z 벡터를 학습할 수 있음. (여기에서는 embedding 사용)
+    - loss 및 학습 방법은 VAE랑 동일함
+    - 논문: https://papers.nips.cc/paper/2015/hash/8d55a249e6baa5c06772297520da2051-Abstract.html
+    - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/%08CVAE.ipynb
+- Generative Adversarial Networks (GAN), 2014
+    - generater와 discriminator의 mini max 게임으로 generater를 학습시킴. 완벽하게 잘 학습된 generater는 discriminator의 fake or real을 맞출 확률을 1/2로 만듦
+    - VAE에서 가정한 z 벡터를 통한 variational inference가 아닌 global approximator의 성질을 이용해서 직접 학습
+    - $\min_{G}\max_{D}\mathbb{E}_{x\sim p_{\text{data}}(x)}[\log{D(x)}] +  \mathbb{E}_{z\sim p_{\text{z}}(z)}[1 - \log{D(G(z))}]$
+    - 논문: https://arxiv.org/abs/1406.2661
+    - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/GAN.ipynb
+- Conditional Generative Adversarial Networks (CGAN), 2014
+    - CAE가 그러했듯, GAN에도 label condition을 주입함으로서 특정 condition에 따라서 생성이 가능하도록 함
+    - 논문: https://arxiv.org/abs/1411.1784
+    - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/%08CGAN.ipynb
+- Deep Convolutional Gernerative Adversarial Networks (DCGAN), 2015
+    - GAN의 generator, discriminator를 CNN 레이어로 교체하여 성능을 개선
+    - Word2Vec에서 했던 것처럼 각 이미지 피처를 더하고 빼는 식으로 성공적으로 임베딩이 되었음을 보여줌
+    - 논문: https://arxiv.org/abs/1511.06434
+    - 코드: https://github.com/jonghyunlee1993/PapersWithCode_GenerativeModels/blob/master/DCGAN.ipynb
